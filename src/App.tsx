@@ -16,6 +16,9 @@ import ContactPage from './pages/ContactPage';
 
 // Components
 import LoadingScreen from './components/LoadingScreen';
+import PrivacyPolicy from './pages/PrivacyPage';
+import TermsOfService from './pages/TermsPage';
+import CookiePolicy from './pages/CookiesPage';
 
 function App() {
   const location = useLocation();
@@ -45,6 +48,11 @@ function App() {
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/cookies" element={<CookiePolicy />} />
+
+
             </Route>
           </Routes>
         </AnimatePresence>

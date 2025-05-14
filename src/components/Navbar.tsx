@@ -16,11 +16,24 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hideNavbar, setHideNavbar] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 10);
+
+      // Hide navbar on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setHideNavbar(true);
+      } else {
+        setHideNavbar(false);
+      }
+
+      lastScrollY = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -35,8 +48,8 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-cyber-dark/80 backdrop-blur-md' : 'bg-transparent'
-      }`}
+        hideNavbar ? '-translate-y-full' : 'translate-y-0'
+      } ${isScrolled ? 'bg-cyber-dark/80 backdrop-blur-md' : 'bg-transparent'}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">

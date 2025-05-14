@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+
 import { 
   Server, 
   Cpu, 
@@ -237,6 +238,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      
 
       {/* Testimonials Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-cyber-dark">
