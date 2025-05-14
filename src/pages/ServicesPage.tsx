@@ -241,14 +241,14 @@ const ServicePage = () => {
                 </NeonButton>
               </motion.div>
 
-              <motion.div
-                className="relative h-[400px] md:h-[500px] w-full"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className={`${index % 2 !== 0 ? 'lg:order-1' : ''}`}
-              >
+           <motion.div
+  initial={{ opacity: 0, x: 30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+  className={`relative h-[400px] md:h-[500px] w-full ${index % 2 !== 0 ? 'lg:order-1' : ''}`}
+>
+
                 <img 
                   src={`https://images.pexels.com/photos/${2599244 + index * 10}/pexels-photo-${2599244 + index * 10}.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`} 
                   alt={service.title} 
